@@ -31,86 +31,66 @@
       </div>
     </section>
 
-    <section id="about" class="about container" role="region" aria-labelledby="tab-about">
-      <!-- Top tab controls for site sections -->
-      <div class="section-tabs" role="tablist" aria-label="Site sections">
-        <button role="tab" aria-selected="true" id="tab-about" data-target="panel-about" aria-controls="panel-about" class="section-tab">About</button>
-        <button role="tab" aria-selected="false" id="tab-education" data-target="panel-education" aria-controls="panel-education" class="section-tab">Education</button>
-        <button role="tab" aria-selected="false" id="tab-relevant" data-target="panel-relevant" aria-controls="panel-relevant" class="section-tab">Relevant course</button>
-        <button role="tab" aria-selected="false" id="tab-skills" data-target="panel-skills" aria-controls="panel-skills" class="section-tab">Skills</button>
-        <button role="tab" aria-selected="false" id="tab-certs" data-target="panel-certifications" aria-controls="panel-certifications" class="section-tab">Certifications</button>
-        <button role="tab" aria-selected="false" id="tab-projects" data-target="projects" aria-controls="projects" class="section-tab">Projects</button>
-        <button role="tab" aria-selected="false" id="tab-contact" data-target="contact" aria-controls="contact" class="section-tab">Contact</button>
-      </div>
+    <section id="about" class="about container">
+      <h2>About me</h2>
+      <p class="about-text">I am a 22-year-old Biomedical Technologist and an enthusiast in Medical Laboratory Technology (MLT), with strong interests in biochemistry, medical laboratory techniques and biomedical instrumentation. My training emphasizes accurate sample analysis, equipment calibration, and reliable data reporting. I speak English, Sinhala and Tamil, and I enjoy applying laboratory science to solve real-world healthcare problems.</p>
 
-      <!-- Panels (only About is visible by default) -->
-      <div id="panel-about" class="panel" aria-hidden="false">
-        <h2>About me</h2>
-        <p class="about-text">I am a 22-year-old Biomedical Technologist and an enthusiast in Medical Laboratory Technology (MLT), with strong interests in biochemistry, medical laboratory techniques and biomedical instrumentation. My training emphasizes accurate sample analysis, equipment calibration, and reliable data reporting. I speak English, Sinhala and Tamil, and I enjoy applying laboratory science to solve real-world healthcare problems.</p>
+      <!-- Personal information cards (scroll on small screens, grid on larger) -->
+      <section class="personal-info">
+        <h3 class="section-title">Personal Information</h3>
+        <div class="info-inner">
+          <div class="personal-cards">
+            <article class="personal-card">
+              <div class="accent-bar" aria-hidden="true"></div>
+              <div class="card-content">
+                <div class="card-title">Birth</div>
+                <div class="card-body">2003-02-18</div>
+              </div>
+            </article>
 
-        <!-- Personal information cards (scroll on small screens, grid on larger) -->
-        <section class="personal-info">
-          <h3 class="section-title">Personal Information</h3>
-          <div class="info-inner">
-            <div class="personal-cards">
-              <article class="personal-card">
-                <div class="accent-bar" aria-hidden="true"></div>
-                <div class="card-content">
-                  <div class="card-title">Birth</div>
-                  <div class="card-body">2003-02-18</div>
-                </div>
-              </article>
+            <article class="personal-card">
+              <div class="accent-bar" aria-hidden="true"></div>
+              <div class="card-content">
+                <div class="card-title">Location</div>
+                <div class="card-body">No 35/2 Peramadu Road, Agbopura, Kanthale</div>
+              </div>
+            </article>
 
-              <article class="personal-card">
-                <div class="accent-bar" aria-hidden="true"></div>
-                <div class="card-content">
-                  <div class="card-title">Location</div>
-                  <div class="card-body">No 35/2 Peramadu Road, Agbopura, Kanthale</div>
-                </div>
-              </article>
+            <article class="personal-card">
+              <div class="accent-bar" aria-hidden="true"></div>
+              <div class="card-content">
+                <div class="card-title">Languages</div>
+                <div class="card-body">English, Sinhala, Tamil</div>
+              </div>
+            </article>
 
-              <article class="personal-card">
-                <div class="accent-bar" aria-hidden="true"></div>
-                <div class="card-content">
-                  <div class="card-title">Languages</div>
-                  <div class="card-body">English, Sinhala, Tamil</div>
-                </div>
-              </article>
-
-              <article class="personal-card">
-                <div class="accent-bar" aria-hidden="true"></div>
-                <div class="card-content">
-                  <div class="card-title">Interests</div>
-                  <div class="card-body">Biochemistry, MLT, Biomedical Instrumentation</div>
-                </div>
-              </article>
-            </div>
+            <article class="personal-card">
+              <div class="accent-bar" aria-hidden="true"></div>
+              <div class="card-content">
+                <div class="card-title">Interests</div>
+                <div class="card-body">Biochemistry, MLT, Biomedical Instrumentation</div>
+              </div>
+            </article>
           </div>
-        </section>
-      </div>
-
-      <div id="panel-education" class="panel is-hidden" aria-hidden="true">
-        <h2>Education</h2>
+        </div>
+      </section>
+      
+      <div class="details">
+        <h3>Education</h3>
         <p><strong>BHSc (Hons) in Biomedical Technology</strong>, Gampaha Wickramarachchi University of Indigenous Medicine</p>
-      </div>
 
-      <div id="panel-relevant" class="panel is-hidden" aria-hidden="true">
-        <h2>Relevant course</h2>
+        <h3>Relevant course</h3>
         <p>Medical Laboratory Technology</p>
-      </div>
 
-      <div id="panel-skills" class="panel is-hidden" aria-hidden="true">
-        <h2>Skills</h2>
+        <h3>Skills</h3>
         <ul class="skills">
           <li>Biomedical instrumentation</li>
           <li>Arduino</li>
-          <li>HTML &amp; CSS</li>
+          <li>HTML & CSS</li>
           <li>Electronics</li>
         </ul>
-      </div>
 
-      <div id="panel-certifications" class="panel is-hidden" aria-hidden="true">
-        <h2>Certifications</h2>
+        <h3>Certifications</h3>
         <ul>
           <li>MLT course — SDTI Campus (2025)</li>
           <li>Online ICT course (2024)</li>
@@ -118,7 +98,7 @@
       </div>
     </section>
 
-    <section id="projects" class="projects container panel is-hidden" role="region" aria-labelledby="tab-projects" aria-hidden="true">
+    <section id="projects" class="projects container">
       <h2>Projects</h2>
       <p class="muted">Below are a couple of projects — add more and I’ll style them as cards.</p>
       <div class="project-grid" id="projectGrid">
@@ -136,7 +116,7 @@
       </div>
     </section>
 
-    <section id="contact" class="contact container panel is-hidden" role="region" aria-labelledby="tab-contact" aria-hidden="true">
+    <section id="contact" class="contact container">
       <h2>Contact</h2>
       <p>You can reach me at:</p>
       <ul>

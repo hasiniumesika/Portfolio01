@@ -46,16 +46,6 @@
   .personal-card{flex:1;padding:.9rem;min-height:72px}
 }
 
-/* Section tabs (site-level) */
-.section-tabs{display:flex;gap:.5rem;overflow:auto;padding:.4rem 0;margin-bottom:1rem}
-.section-tab{background:transparent;padding:.55rem .75rem;border-radius:8px;border:1px solid transparent;color:var(--muted-ghost);cursor:pointer;white-space:nowrap}
-.section-tab[aria-selected="true"]{background:var(--card);color:var(--text);border-color:rgba(15,23,36,0.04);box-shadow:var(--shadow);font-weight:600}
-.section-tab:focus{outline:3px solid rgba(37,99,235,0.12);outline-offset:2px}
-
-.panel{background:transparent;padding:0;margin-bottom:1rem}
-.panel.is-hidden{display:none}
-.panel h2{margin-bottom:.6rem}
-
 .project-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:1rem;margin-top:1rem}
 .project-card{background:var(--card);padding:.9rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.08)}
