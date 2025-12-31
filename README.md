@@ -15,6 +15,7 @@ Recent changes:
 - Converted the site to a **mobile-first** design (base styles for small screens with min-width breakpoints for larger screens).
 - Improved mobile navigation accessibility: the menu toggle uses `aria-expanded` and the menu closes after tapping a link.
  - Downloaded your Imgur image and stored it locally at `images/profile.jpg`. The hero now uses this local profile image and centers it on mobile.
+ - Added **dark mode**: a theme toggle is available in the header and the site will respect your system preference by default. The selection is persisted in `localStorage` so your choice stays across visits.
 
 Next steps:
 - Provide your project details (title, description, link) and I will add them.

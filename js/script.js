@@ -30,3 +30,35 @@ function addProject({title,description,link}){
 }
 
 // Example placeholder
+
+/* Theme handling */
+function applyTheme(theme){
+  const root = document.documentElement;
+  if(theme==='dark') root.setAttribute('data-theme','dark'); else root.removeAttribute('data-theme');
+  const btn = document.getElementById('themeToggle');
+  if(btn) btn.setAttribute('aria-pressed', String(theme==='dark'));
+}
+
+function detectSystemTheme(){
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function initThemeToggle(){
+  const btn = document.getElementById('themeToggle');
+  if(!btn) return;
+  // Load preference from localStorage or fall back to system
+  const stored = localStorage.getItem('theme');
+  const initial = stored || detectSystemTheme();
+  applyTheme(initial);
+
+  btn.addEventListener('click',()=>{
+    // toggle
+    const current = document.documentElement.getAttribute('data-theme')==='dark' ? 'dark' : 'light';
+    const next = current==='dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem('theme', next);
+  });
+}
+
+// initialize theme after DOM ready
+document.addEventListener('DOMContentLoaded', initThemeToggle);

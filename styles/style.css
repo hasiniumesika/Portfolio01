@@ -3,6 +3,12 @@
 .root, :root{}
 :root{--bg:#f7fafc;--card:#ffffff;--text:#0f1724;--muted:#475569;--accent:#2563eb;--muted-ghost:rgba(71,85,105,0.85);--shadow:0 6px 18px rgba(16,24,40,0.06)}
 .body, body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.6;background:linear-gradient(180deg,#fbfdff,#f7fafc);color:var(--text);min-height:100vh}
+
+/* Dark theme overrides when [data-theme="dark"] is set on <html> */
+:root[data-theme="dark"]{--bg:#071028;--card:#0b1220;--text:#e6eef8;--muted:#94a3b8;--accent:#7dd3fc;--muted-ghost:rgba(230,238,248,0.75);--shadow:0 8px 30px rgba(2,6,23,0.6)}
+
+/* Smooth theme transitions */
+html,body{transition:background-color .18s ease,color .18s ease}
 .container{width:min(1000px,94%);margin:0 auto;padding:1.5rem 0}
 .site-header{position:sticky;top:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(4px);padding:.5rem 0;border-bottom:1px solid rgba(15,23,36,0.04)}
 .nav{display:flex;align-items:center;justify-content:space-between}
@@ -11,6 +17,10 @@
 .nav-links a{color:var(--muted-ghost);text-decoration:none;padding:.6rem .75rem;border-radius:8px;transition:background .15s ease,color .15s ease}
 .nav-links a:hover{background:rgba(37,99,235,0.06);color:var(--accent)}
 .nav-toggle{display:block;background:none;border:none;color:var(--text);font-size:1.25rem;padding:.25rem}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
+.theme-toggle{background:transparent;border:1px solid transparent;padding:.4rem .55rem;border-radius:8px;font-size:1rem;cursor:pointer}
+.theme-toggle[aria-pressed="true"]{background:var(--card);box-shadow:var(--shadow);border-color:rgba(15,23,36,0.04)}
+.theme-toggle:focus{outline:3px solid rgba(37,99,235,0.12);outline-offset:2px}
 .nav-links.show{display:flex}
 
 .hero{padding:2.25rem 0 1.25rem}
