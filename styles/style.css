@@ -1,0 +1,43 @@
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0f1724;--card:#0b1220;--text:#e6eef8;--muted:#94a3b8;--accent:#7dd3fc}
+body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;background:linear-gradient(180deg,#071028,#0f1724);color:var(--text);min-height:100vh}
+.container{width:min(1000px,94%);margin:0 auto;padding:3rem 0}
+.site-header{position:sticky;top:0;background:transparent;padding:1rem 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;color:var(--text);text-decoration:none}
+.nav-links{list-style:none;display:flex;gap:1rem}
+.nav-links a{color:var(--muted);text-decoration:none}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.25rem}
+
+.hero{padding:6rem 0 4rem}
+.name{font-size:2.25rem;margin-bottom:.5rem}
+.accent{color:var(--accent)}
+.lead{color:var(--muted);margin-bottom:1.25rem}
+.cta{display:inline-block;padding:.6rem 1rem;background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.18);color:var(--accent);text-decoration:none;border-radius:6px}
+
+.about h2,.projects h2,.contact h2{margin-bottom:.75rem}
+.about-text{color:var(--text);max-width:70ch;margin-bottom:1rem}
+.personal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;color:var(--muted)}
+
+.details{margin-top:1.25rem;color:var(--muted)}
+.details h3{margin-top:.75rem;color:var(--text)}
+.skills{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin-top:.5rem}
+.skills li{background:rgba(255,255,255,.03);padding:.35rem .6rem;border-radius:999px;border:1px solid rgba(255,255,255,.03);font-size:.9rem}
+
+.project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem}
+.project-card{background:rgba(255,255,255,.02);padding:1rem;border-radius:8px;border:1px solid rgba(255,255,255,.03)}
+.muted{color:var(--muted)}
+
+.site-footer{text-align:center;color:var(--muted);padding:2rem 0}
+
+/* Responsive nav */
+@media (max-width:700px){
+  .nav-links{position:absolute;top:64px;right:1rem;background:var(--card);padding:1rem;border-radius:8px;flex-direction:column;display:none}
+  .nav-links.show{display:flex}
+  .nav-toggle{display:block}
+}
+
+/* small, subtle entrance animations */
+.container, .hero, .about, .projects{animation:fadeIn .6s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
