@@ -37,6 +37,31 @@ html,body{transition:background-color .18s ease,color .18s ease}
   background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.035), transparent 12%), radial-gradient(circle at 90% 80%, rgba(0,0,0,0.06), transparent 16%);
   pointer-events:none;
 }
+
+/* Hero decorative moving dots */
+.hero-decor{position:absolute;inset:0;pointer-events:none;background-image:repeating-radial-gradient(circle at 10% 20%,rgba(255,255,255,0.02) 0 2px, transparent 3px), repeating-radial-gradient(circle at 80% 80%,rgba(0,0,0,0.02) 0 2px, transparent 3px);opacity:0.9;mix-blend-mode:overlay;animation:decorMove 15s linear infinite}
+@keyframes decorMove{from{background-position:0 0,0 0}to{background-position:200px 120px,-150px -90px}}
+
+/* Profile float */
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+.profile-img.animate.in-view{animation:popIn .7s cubic-bezier(.2,.9,.2,1) both, floaty 6s ease-in-out 1.2s infinite}
+
+/* Hero name letter animation */
+.hero-name{display:inline-block}
+.hero-name .char{display:inline-block;opacity:0;transform:translateY(10px);filter:blur(0.1px)}
+.hero-name.in-view .char{animation:charIn .7s cubic-bezier(.2,.9,.2,1) both}
+@keyframes charIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* Hover tilt subtle */
+.tiltable{transform-style:preserve-3d;transition:transform .12s ease}
+.tiltable:hover{will-change:transform}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-decor{animation:none!important}
+  .profile-img.animate.in-view{animation:none!important;transform:none!important}
+  .hero-name .char{transition:none!important;animation:none!important}
+}
+
 .name{font-size:2.6rem;margin:0.6rem 0;font-weight:800;color:#fff;line-height:1}
 .accent{color:rgba(255,255,255,0.95)}
 .lead{color:rgba(255,255,255,0.92);margin-bottom:1.25rem;font-size:1.05rem}
@@ -73,6 +98,36 @@ html,body{transition:background-color .18s ease,color .18s ease}
 .project-card{background:var(--card);padding:.9rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease}
 .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.08)}
 .muted{color:var(--muted)}
+
+/* Details cards styled like Experience */
+.details-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+.detail-card{display:flex;gap:1rem;align-items:flex-start;background:var(--card);padding:1.25rem;border-radius:14px;border:1px solid rgba(15,23,36,0.04);box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease}
+.detail-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.06)}
+.card-media{width:64px;height:64px;border-radius:12px;background:linear-gradient(180deg,rgba(37,99,235,0.08),rgba(37,99,235,0.04));display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+.card-content h3{margin:0 0 .5rem 0;color:var(--text)}
+.card-content p{color:var(--muted);margin-bottom:.4rem}
+.skills.skills-inline{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem}
+.skills.skills-inline li{background:rgba(37,99,235,0.06);padding:.4rem .65rem;border-radius:999px;border:1px solid rgba(37,99,235,0.08);font-size:.92rem;color:var(--accent)}
+.cert-list{color:var(--muted);margin-top:.4rem}
+
+/* Contact cards */
+.contact-cards{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1rem}
+.contact-card{display:flex;align-items:center;gap:1rem;background:var(--card);padding:1rem;border-radius:12px;border:1px solid rgba(15,23,36,0.04);box-shadow:var(--shadow);transition:transform .14s ease,box-shadow .14s ease}
+.contact-card .accent-bar{width:6px;height:56px;border-radius:8px;background:linear-gradient(180deg,var(--accent),#7dd3fc);flex-shrink:0}
+.contact-body{display:flex;flex-direction:column}
+.contact-title{font-weight:700;color:var(--text);margin-bottom:.15rem}
+.contact-item a{color:var(--accent);text-decoration:none}
+.contact-item a:hover{text-decoration:underline}
+.contact-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(16,24,40,0.06)}
+
+@media(min-width:700px){
+  .contact-cards{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(min-width:1000px){
+  .details-grid{grid-template-columns:repeat(4,1fr)}
+}
+
 
 .project-card a{color:var(--accent);text-decoration:none;font-weight:600}
 .project-card a:hover{text-decoration:underline}
@@ -112,8 +167,100 @@ html,body{transition:background-color .18s ease,color .18s ease}
 .container, .hero, .about, .projects{animation:fadeIn .6s ease both}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
+/* Motion variables */
+:root{--anim-fast:.18s;--anim-medium:.4s;--anim-slow:.75s;--hover-x:50%;--hover-y:50%;--accent-start: #00d4b8;--accent-mid: #3b82f6;--accent-end: #b669ff}
+
+/* Color-follow background for interactive elements */
+.color-animate{position:relative;overflow:hidden}
+.color-animate::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(800px 400px at var(--hover-x,50%) var(--hover-y,50%), rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 8%, transparent 30%);opacity:0;transition:opacity .32s cubic-bezier(.2,.9,.3,1), transform .28s cubic-bezier(.2,.9,.3,1);mix-blend-mode:screen;transform:scale(.98);border-radius:inherit}
+.color-animate.hovering::after{opacity:1;transform:none}
+
+/* Accent gradient that shifts with pointer */
+.color-accent{--accent-start: 22 115 255; --accent-mid: 118 75 162; --accent-end: 255 102 102; background-image:linear-gradient(135deg, rgba(var(--accent-start), .08), rgba(var(--accent-mid), .06), rgba(var(--accent-end), .05));background-size:160% 160%;background-position:50% 50%;transition:background-position .45s cubic-bezier(.22,.9,.3,1)}
+.color-accent.follow{background-position:var(--hover-x) var(--hover-y)}
+
+/* Nav link animated underline color (uses accent variables) */
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:6px;right:6px;height:3px;background:linear-gradient(90deg,rgba(var(--accent-start),1),rgba(var(--accent-mid),1),rgba(var(--accent-end),1));bottom:-8px;border-radius:4px;transform:scaleX(0);transform-origin:left center;transition:transform .22s ease,opacity .2s ease}
+.nav-links a.hovering::after, .nav-links a:focus::after, .nav-links a:hover::after{transform:scaleX(1);opacity:1}
+
+
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .animate, .project-card, .personal-card, .info-card, .hero, .site-footer, .profile-img{transition:none!important;animation:none!important}
+}
+
+/* Animation utility classes */
+.animate{opacity:0;transform:translateY(12px) scale(.995);transition:opacity var(--anim-medium) ease,transform var(--anim-medium) cubic-bezier(.2,.9,.2,1)}
+.animate.in-view{opacity:1;transform:none}
+
+/* Fade-up keyframe for smoother entrance */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.animate.fade-up.in-view{animation:fadeUp .6s cubic-bezier(.2,.9,.2,1) both}
+
+/* Pop for profile image */
+@keyframes popIn{from{opacity:0;transform:scale(.85)}50%{transform:scale(1.04)}to{opacity:1;transform:none}}
+.profile-img.animate{opacity:0;transform:scale(.9);transition:none}
+.profile-img.animate.in-view{animation:popIn .7s cubic-bezier(.2,.9,.2,1) both}
+
+/* Stagger utilities for children */
+.stagger > *{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.stagger.in-view > *{opacity:1;transform:none}
+
+/* Hover micro-interactions */
+.project-card, .detail-card, .contact-card{transition:transform .18s ease,box-shadow .18s ease,filter .22s ease}
+.project-card:hover, .detail-card:hover, .contact-card:hover{transform:translateY(-10px) scale(1.02);filter:brightness(1.03)}
+.personal-card{transition:transform .16s ease,box-shadow .16s ease}
+.personal-card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(16,24,40,0.08)}
+.cta{transition:transform .16s ease,box-shadow .16s ease,background-position .35s ease}
+.cta:hover{transform:translateY(-4px) scale(1.02)}
+
+/* Apply color-follow to key interactive elements */
+.hero, .cta, .project-card, .detail-card, .contact-card, .nav-links a{--hover-x:50%;--hover-y:50%}
+.hero.color-animate::after{background:radial-gradient(600px circle at var(--hover-x) var(--hover-y), rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 8%, transparent 30%)}
+/* CTA: teal → cyan gradient for strong, professional contrast */
+.cta.color-accent{background-image:linear-gradient(90deg,#00C2A8 0%, #3B82F6 100%);color:#fff;border:0;box-shadow:0 12px 36px rgba(59,130,246,0.16);background-size:200% 100%;background-position:50% 50%;}
+.cta.color-accent.hovering{box-shadow:0 26px 64px rgba(3,118,255,0.18);transform:translateY(-4px) scale(1.02)}
+.project-card.color-animate::after, .detail-card.color-animate::after, .contact-card.color-animate::after{background:radial-gradient(300px circle at var(--hover-x) var(--hover-y), rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 8%, transparent 30%)}
+
+/* Site pointer overlay (subtle spotlight that follows the pointer) */
+.pointer-overlay{position:fixed;left:0;top:0;width:420px;height:420px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%) scale(0.92);opacity:0;transition:opacity .35s cubic-bezier(.2,.9,.3,1),transform .35s cubic-bezier(.2,.9,.3,1);background:radial-gradient(circle at 40% 40%, rgba(255,255,255,0.12) 0%, rgba(var(--accent-mid),0.06) 18%, rgba(var(--accent-end),0.04) 36%, rgba(255,255,255,0) 60%);mix-blend-mode:screen;will-change:transform,opacity,background-position;z-index:9999}
+.pointer-overlay.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+/* nav highlight ring */
+.nav{position:relative}
+.nav .nav-spot{position:absolute;pointer-events:none;width:120px;height:36px;border-radius:20px;transform:translate(-50%,-50%) scale(.8);background:linear-gradient(90deg, rgba(var(--accent-start),.16), rgba(var(--accent-mid),.10));box-shadow:0 8px 24px rgba(3,118,255,0.08);opacity:0;transition:opacity .22s ease, transform .22s cubic-bezier(.2,.9,.3,1);z-index:5}
+.nav .nav-spot.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+/* Nav links subtle slide/underline + color shade */
+.nav-links a{position:relative;overflow:hidden;--nav-hover-x:50%;--nav-hover-y:50%}
+.nav-links a::before{content:"";position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;border-radius:8px;background:radial-gradient(120px 48px at var(--hover-x,50%) var(--hover-y,50%), rgba(var(--accent-mid),0.18) 0%, rgba(var(--accent-start),0.06) 36%, rgba(255,255,255,0) 60%);opacity:0;transform:translateY(4px) scale(.96);transition:opacity .28s cubic-bezier(.2,.9,.3,1),transform .28s cubic-bezier(.2,.9,.3,1);mix-blend-mode:screen;filter:blur(8px)}
+.nav-links a.hovering::before, .nav-links a:focus::before, .nav-links a:hover::before{opacity:1;transform:none}
+.nav-links a::after{content:"";position:absolute;left:6px;right:6px;height:3px;background:linear-gradient(90deg,rgba(var(--accent-start),1),rgba(var(--accent-mid),1),rgba(var(--accent-end),1));bottom:-8px;border-radius:4px;transform:scaleX(0);transform-origin:left center;transition:transform .22s ease,opacity .2s ease}
+.nav-links a.hovering::after, .nav-links a:focus::after, .nav-links a:hover::after{transform:scaleX(1);opacity:1}
+
+/* Footer entrance */
+.site-footer .footer-grid.animate{opacity:0;transform:translateY(12px)}
+.site-footer .footer-grid.animate.in-view{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+
+/* Utility to visually hide elements for reduced motion users while keeping them visible */
+.visually-visible{opacity:1!important;transform:none!important}
+
+
 /* Footer styles (dark, multi-column) */
 .site-footer{padding:3.25rem 0;background:linear-gradient(180deg,#0b0b0d,#17171a);color:rgba(255,255,255,0.9)}
+
+/* Strong fallback/override to ensure the footer appears dark even if other rules apply */
+footer.site-footer, .site-footer{
+  background-color:#0b0b0d !important;
+  background-image:linear-gradient(180deg,#0b0b0d,#17171a) !important;
+  color:rgba(255,255,255,0.95) !important;
+}
+.site-footer .footer-container, .site-footer .container{background:transparent !important}
+.site-footer a{color:rgba(255,255,255,0.86) !important}
+.site-footer h4{color:#ffffff !important}
+.footer-divider{border-top-color:rgba(255,255,255,0.06) !important}
 .site-footer .footer-container{padding:0}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:1.2rem;align-items:start;margin-bottom:1.25rem}
 .footer-brand .brand-name{font-weight:800;font-size:1.25rem;background:linear-gradient(90deg,#00d4b8,#3b82f6,#b669ff);-webkit-background-clip:text;background-clip:text;color:transparent}

@@ -25,12 +25,13 @@
   <main>
     <section class="hero">
       <div class="container">
+        <div class="hero-decor" aria-hidden="true"></div>
         <div class="hero-top">
-          <img src="images/profile.jpg" alt="Profile photo of Hasini Umesika" class="profile-img">
-          <h1 class="name">Hi, I'm <span class="accent">Hasini Umesika</span></h1>
+          <img src="images/profile.jpg" alt="Profile photo of Hasini Umesika" class="profile-img animate">
+          <h1 class="name">Hi, I'm <span class="hero-name" data-split="chars">Hasini Umesika</span></h1>
         </div>
         <p class="lead">Biomedical Technologist, enthusiast in Medical Laboratory Technologist (MLT)</p>
-        <a class="cta" href="#contact">Get in touch</a>
+        <a class="cta color-accent" href="#contact">Get in touch</a>
       </div>
     </section>
 
@@ -79,25 +80,50 @@
       </section>
       
       <div class="details">
-        <h3>Education</h3>
-        <p><strong>BHSc (Hons) in Biomedical Technology</strong>, Gampaha Wickramarachchi University of Indigenous Medicine</p>
+        <div class="details-grid">
 
-        <h3>Relevant course</h3>
-        <p>Medical Laboratory Technology</p>
+          <article class="detail-card animate">
+            <div class="card-media" aria-hidden="true">🎓</div>
+            <div class="card-content">
+              <h3>Education</h3>
+              <p><strong>BHSc (Hons) in Biomedical Technology</strong>, Gampaha Wickramarachchi University of Indigenous Medicine</p>
+              <p><strong>T/Agbopura Maha Vidyalaya</strong>, A/Ls, 2021–2023</p>
+            </div>
+          </article>
 
-        <h3>Skills</h3>
-        <ul class="skills">
-          <li>Biomedical instrumentation</li>
-          <li>Arduino</li>
-          <li>HTML & CSS</li>
-          <li>Electronics</li>
-        </ul>
+          <article class="detail-card animate">
+            <div class="card-media" aria-hidden="true">📚</div>
+            <div class="card-content">
+              <h3>Relevant course</h3>
+              <p>Medical Laboratory Technology</p>
+            </div>
+          </article>
 
-        <h3>Certifications</h3>
-        <ul>
-          <li>MLT course — SDTI Campus (2025)</li>
-          <li>Online ICT course (2024)</li>
-        </ul>
+          <article class="detail-card animate">
+            <div class="card-media" aria-hidden="true">💡</div>
+            <div class="card-content">
+              <h3>Skills</h3>
+              <ul class="skills skills-inline">
+                <li>Biomedical instrumentation</li>
+                <li>Arduino</li>
+                <li>HTML &amp; CSS</li>
+                <li>Electronics</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="detail-card animate">
+            <div class="card-media" aria-hidden="true">📜</div>
+            <div class="card-content">
+              <h3>Certifications</h3>
+              <ul class="cert-list">
+                <li>MLT course — SDTI Campus (2025)</li>
+                <li>Online ICT course (2024)</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
@@ -122,10 +148,32 @@
     <section id="contact" class="contact container">
       <h2>Contact</h2>
       <p>You can reach me at:</p>
-      <ul>
-        <li><strong>Email:</strong> <a href="mailto:umesika20030218@gmail.com">umesika20030218@gmail.com</a></li>
-        <li><strong>Phone:</strong> <a href="tel:+94721044623">+94 72 104 4623</a></li>
-      </ul>
+
+      <div class="contact-cards">
+        <article class="contact-card animate">
+          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="contact-body">
+            <div class="contact-title">Email</div>
+            <div class="contact-item"><a href="mailto:umesika20030218@gmail.com">umesika20030218@gmail.com</a></div>
+          </div>
+        </article>
+
+        <article class="contact-card animate">
+          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="contact-body">
+            <div class="contact-title">Phone</div>
+            <div class="contact-item"><a href="tel:+94721044623">+94 72 104 4623</a></div>
+          </div>
+        </article>
+
+        <article class="contact-card animate">
+          <div class="accent-bar" aria-hidden="true"></div>
+          <div class="contact-body">
+            <div class="contact-title">LinkedIn</div>
+            <div class="contact-item"><a href="https://www.linkedin.com/in/hasini-umeshika-7b15243a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener">hasini-umeshika</a></div>
+          </div>
+        </article>
+      </div>
     </section>
   </main>
 
